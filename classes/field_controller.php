@@ -90,7 +90,7 @@ class field_controller extends \core_customfield\field_controller {
                   FROM {apsolu_locations} al
                   JOIN {apsolu_areas} aa ON aa.id = al.areaid
                   JOIN {apsolu_cities} ac ON ac.id = aa.cityid
-              ORDER BY al.name, city";
+              ORDER BY city, al.name";
         $locations = $DB->get_records_sql($sql);
 
         foreach ($locations as $option) {
