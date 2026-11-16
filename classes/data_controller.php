@@ -111,6 +111,20 @@ class data_controller extends \core_customfield\data_controller {
     }
 
     /**
+     * Returns the value as it is stored in the database or default value if data record is not present
+     *
+     * @return mixed
+     */
+    public function get_value() {
+        $value = $this->get($this->datafield());
+        if (empty($value) === false) {
+            return $value;
+        }
+
+        return $this->get_default_value();
+    }
+
+    /**
      * Returns value in a human-readable format
      *
      * @return mixed|null value or null if empty
